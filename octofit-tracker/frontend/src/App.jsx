@@ -4,10 +4,11 @@ import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
+import { getApiBaseUrl } from './lib/api';
 import './App.css';
 
 function App() {
-  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim();
+  const apiBaseUrl = getApiBaseUrl();
 
   return (
     <main className="container py-4">
@@ -38,7 +39,7 @@ function App() {
                       This presentation tier uses React Router and Vite environment variables to connect to the Node.js API.
                     </p>
                     <p className="mb-0">
-                      Codespaces base URL: {codespaceName ? `https://${codespaceName}-8000.app.github.dev` : 'http://localhost:8000'}
+                      API base URL: {apiBaseUrl}
                     </p>
                   </div>
                 </div>

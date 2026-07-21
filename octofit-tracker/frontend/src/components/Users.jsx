@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
+import { buildApiUrl } from '../lib/api';
 
-function buildApiUrl(path) {
-  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim();
-  if (codespaceName) {
-    return `https://${codespaceName}-8000.app.github.dev${path}`;
-  }
-  return `http://localhost:8000${path}`;
-}
-
+// API endpoint used by this component:
+// https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users
 export default function Users() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
