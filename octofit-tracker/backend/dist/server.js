@@ -12,7 +12,7 @@ const leaderboard_1 = require("./models/leaderboard");
 const workout_1 = require("./models/workout");
 const app = (0, express_1.default)();
 const port = Number(process.env.PORT ?? 8000);
-const codespaceName = process.env.CODESPACE_NAME;
+const codespaceName = process.env.CODESPACE_NAME?.trim();
 const baseUrl = codespaceName
     ? `https://${codespaceName}-8000.app.github.dev`
     : `http://localhost:${port}`;
